@@ -1047,6 +1047,24 @@ sudo apt-get install ros-noetic-serial
 
 
 
+# git
+
+```
+git clone url...
+
+git switch 
+# 切换分支
+
+# 合并到当前分支
+git merge
+
+# 查看分支 
+git branch -a
+
+# fatal: 拒绝合并无关的历史
+git merge main --allow-unrelated-histories 
+```
+
 
 
 # Trick
