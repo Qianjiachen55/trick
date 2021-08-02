@@ -1061,6 +1061,10 @@ git branch -a
 
 # fatal: 拒绝合并无关的历史
 git merge main --allow-unrelated-histories 
+
+# git解决每次都要输入密码的问题
+
+git config --global credential.helper store
 ```
 
 
