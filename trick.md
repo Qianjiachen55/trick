@@ -1041,7 +1041,9 @@ catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python3
 
 # 如果是roscpp、 rospy、 rosmsg等其他组件找不到，尝试使用同样的办法安装。
 sudo apt-get install ros-noetic-serial
-
+# 最有用的命令，没有之一
+#曹！！！！！！！！！！！！！！！！！！！！！！！！！111
+sudo apt install ros-noetic-desktop-full
 
 ```
 
