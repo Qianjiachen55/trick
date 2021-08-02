@@ -1047,8 +1047,6 @@ sudo apt install ros-noetic-desktop-full
 
 ```
 
-
-
 # git
 
 ```
