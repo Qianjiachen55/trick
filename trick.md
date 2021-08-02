@@ -1027,24 +1027,6 @@ drwx------   - root supergroup          0 2021-06-14 02:49 /tmp/hive/root/b6f06d
 
 # 将本地stu1.txt放到集群服务器上
 hadoop fs -put stu1.txt /user/hive/warehouse/stu
-
-
-
-
-```
-
-# Ros
-
-```shell
-#建立工作区，指定版本
-catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python3
-
-# 如果是roscpp、 rospy、 rosmsg等其他组件找不到，尝试使用同样的办法安装。
-sudo apt-get install ros-noetic-serial
-# 最有用的命令，没有之一
-#曹！！！！！！！！！！！！！！！！！！！！！！！！！111
-sudo apt install ros-noetic-desktop-full
-
 ```
 
 # git
