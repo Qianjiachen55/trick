@@ -1,5 +1,3 @@
-## rosdep update (慎用)
-
 ```python
 url="https://ghproxy.com/"+url
 #根据自己的版本改写
@@ -17,31 +15,19 @@ url="https://ghproxy.com/"+url
 url = https://zhuanlan.zhihu.com/p/370080612
 ```
 
-
-
-
-
-## other
+### rostopic
 
 ```shell
-#建立工作区，指定版本
-catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python3
 
-# 如果是roscpp、 rospy、 rosmsg等其他组件找不到，尝试使用同样的办法安装。
-sudo apt-get install ros-noetic-serial
-# 最有用的命令，没有之一
-#曹！！！！！！！！！！！！！！！！！！！！！！！！！111
-sudo apt install ros-noetic-desktop-full
+rostopic list
+
+# rostopic echo shows the data published on a topic
+rostopic echo [topic]
+
 
 ```
 
 
 
-## 好用的工具
 
-```shell
-# gui查看节点关系
-rosrun rqt_graph rqt_graph
-
-```
 

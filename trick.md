@@ -1027,6 +1027,22 @@ drwx------   - root supergroup          0 2021-06-14 02:49 /tmp/hive/root/b6f06d
 
 # 将本地stu1.txt放到集群服务器上
 hadoop fs -put stu1.txt /user/hive/warehouse/stu
+
+
+
+
+```
+
+# Ros
+
+```shell
+#建立工作区，指定版本
+catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python3
+
+# 如果是roscpp、 rospy、 rosmsg等其他组件找不到，尝试使用同样的办法安装。
+sudo apt-get install ros-noetic-serial
+
+
 ```
 
 # git
@@ -1049,6 +1065,15 @@ git merge main --allow-unrelated-histories
 # git解决每次都要输入密码的问题
 
 git config --global credential.helper store
+
+# git 配置ssh_key
+2021-8-30之后无法通过密码连接git服务器
+1. 生成钥文件和私钥文件
+ssh-keygen
+-b 指定密码位数，最小512，2048一般就够，多了没用
+-C comment 注释
+-t rsa 用rsa的加密方式
+
 ```
 
 
