@@ -1,13 +1,14 @@
 # git
 
-```
+```shell
 git clone url...
 
 git switch 
 # 切换分支
 
 # 合并到当前分支
-git merge
+git merge dev
+# 合并dev 到本地分支
 
 # 查看分支 
 git branch -a
