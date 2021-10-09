@@ -8,6 +8,7 @@
 本机：ubuntu20.04
 docker:
 docker-image:ubuntu(18.04)
+java 1.8.0_292
 hadoop:3.2.2
 ```
 
@@ -32,11 +33,15 @@ hadoop:3.2.2
 
   3. 用拉下来的镜像创建三个ubuntu容器
 
-     ```shell
-     docker run -itd --privileged --name master -p 9870:9870 
-     ```
+  ```shell
+  $ docker run -itd --privileged --name master -p 9870:9870 -p 18088:18088 -p 9000:9000 -p 50070:50070 --net mynetwork --ip 172.18.0.2 ubuntu:18.04
+  $ docker run -itd --privileged --name slave1 --net mynetwork --ip 172.18.0.3 ubuntu:18.04 /bin/bash
+  $ docker run -itd --privileged --name slave2 --net mynetwork --ip 172.18.0.4 ubuntu:18.04 /bin/bash
+  ```
 
-     
+  
+
+  
 
 hadoop为**分布式**文件系统，三台主机之间需要**相互通信**
 
@@ -74,6 +79,19 @@ $ scp -r ~/.ssh USER@SLAVE2_IP:<用户家目录>/.ssh
 #2. 下载hadoop
 #3. 解压hadoop到固定目录
 #4. 设置环境变量(~/.profile 或 ~/.bashrc文件，我用的是.profile,建议不要折磨自己,也可以查看两个文件的区别，我反正没看明白)
+
+
+sudo apt install openjdk-8-jdk
+wget https://dlcdn.apache.org/hadoop/common/hadoop-3.2.2/hadoop-3.2.2-src.tar.gz
+sudo tar -zxf ~/hadoop.master.tar.gz -C /usr/local
+环境变量
+export JAVA_HOME=/usr/lib/jvm/java-8....
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+
+export HADOOP_HOME=/usr/local/hadoop
+export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+export PATH=$HADOOP_HOME/bin:/$HADOOP_HOME/sbin:$PATH
 
 ```
 

@@ -25,3 +25,25 @@ docker run -it --name hadoop-master -h master arm64v8/ubuntu bash
 指定名称和hostname 
 ```
 
+- 自制镜像
+
+  ```shell
+  $ docker build -t username/project:version . 
+  #docker build -t "jason/go-gin-test:v1" .
+  
+  ```
+
+
+
+# Kubernetes
+
+```shell
+$ kubectl get pod
+$ kubectl get deployment
+$ kubectl get svc
+
+$ kubectl delete pod pod_id
+$ kubectl delete deployment backend(deployment_id)
+$ kubectl delete svc kube-go-app
+```
+

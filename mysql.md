@@ -74,3 +74,11 @@ bind-address = 0.0.0.0
 
 
 
+### 刷新权限
+
+```shell
+> flush privileges;
+```
+
+
+
