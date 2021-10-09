@@ -29,5 +29,30 @@ ssh-keygen
 
 ```
 
+### 冲突
+
+```shell
+#当别人修改了远程分支，本地也修改后提交可能有冲突
+# 解决方案
+$ git add .
+$ git commit -m ....
+# 提交到本地仓库
+$ git push    #(error)
+
+
+# solution
+$ git add .
+$ git commit -m ....
+$ git pull 
+# 手动解决冲突
+# 然后提交
+git commit -m "...."
+git push
+# or
+# 本地新建分支，将远程仓库拉到本地，本地合并分支解决冲突，然后提交
+#(这个方案之前用过，后来就跟老表两个人开发，就偷懒用第一种办法了)
+
+```
+
 
 
