@@ -66,7 +66,35 @@ docker run -it --name hadoop-master -h master arm64v8/ubuntu bash
   docker inspect CONTAINER_name(| grep xxx)
   ```
 
-  
+
+
+2021.10.19
+
+```shell
+看docker的原理，虽然只明白了作者一点点的意思，但也也感觉理解了很多东西
+
+docker commit 
+# 可读可写层：copy-on-wrire:copy到这一层，再做修改
+# 将可读可写层加入到可读不可写层
+
+docker exec	contanier.  ...
+	# 一个进程选择加入到另一个已有namespace的进程下（进入容器），使用系统调用setns，让新启动的进程与容器共享多种namespace，
+		#setns有两个参数，一个是namespace的目录，另一个是执行的命令
+		--net
+		# 指定网桥
+	# 本质指定network space
+	-v
+	# 指定挂载卷
+	# 将宿主目录 /file 挂载到/var/lib/docker/aufs/mnt/[可读写层 ID]/file
+	
+	
+	
+
+```
+
+
+
+
 
 # Kubernetes
 
@@ -79,4 +107,56 @@ $ kubectl delete pod pod_id
 $ kubectl delete deployment backend(deployment_id)
 $ kubectl delete svc kube-go-app
 ```
+
+
+
+
+
+- kube-apiserver
+- kube-scheduler
+- kube-controller-manager
+
+持久化的数据有kube-apiserver保存在etcd数据库里
+
+
+
+
+
+Pod,deployment,service
+
+```shell
+应用 有多个容器需要紧密合作，容器间通信 ->pod
+启动多个应用 ->pod管理器 -> deployment
+pod间通信 (希望统一访问ip:port,并且负载均衡等)-> service
+pod间通信需要授权 -> secret
+```
+
+
+
+
+
+```shell
+YAML 文件出现在被 kubelet 监视的 /etc/kubernetes/manifests 目录下，kubelet 就会自动创建这些 YAML 文件中定义的 Pod，即 Master 组件的容器。
+```
+
+
+
+
+
+```shell
+pod:
+- 只是一个逻辑概念，本质还是Namespace 和 Cgroups
+- 本质是 pod内的容器 共享一个namespace 并且可以声明共享同一个Volume
+- pod内容器是对等关系
+- pod流量的进出通过Infra容器完成
+
+
+从一个容器内跑多个应用---> 一个pod内跑多个容器
+
+
+可以把pod想象成虚拟机，里面有一组进程在运行
+
+```
+
+
 
