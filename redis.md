@@ -466,5 +466,31 @@ $ bgsave
 
 
 
+## Redis
 
+- mset与set
+
+```shell
+
+
+单指令set n次  发送时长*n*2+执行时长*n
+多指令set n次  发送时长*2  +执行时长*n
+
+```
+
+- Incr&decr
+
+```shell
+```
+
+
+
+
+
+分表
+
+```shell
+
+
+```
 
