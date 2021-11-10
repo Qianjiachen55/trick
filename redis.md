@@ -481,9 +481,51 @@ $ bgsave
 - Incr&decr
 
 ```shell
+减少操作次数
 ```
 
 
+
+- hash
+
+```shell
+购物车
+$ hmset 001 g02 1 g04 7 g05 100
+$ hmset 003 g01:nums 100 g01:info hhhhh
+$ hsetnx 003 g01:nums 200 # 有就不改
+
+
+抢购
+$ hmset p01 c30 1000 c50 1000 c100 1000
+$ HINCRBY p01 c50 -1
+```
+
+- list
+
+```shell
+右进左查
+```
+
+- 阻塞
+
+```shell
+blpop listA 10 # 阻塞10s
+```
+
+- 随机获取（随机推荐）
+
+```shell
+srandmember users 2 # 不改变原集合
+spop users # 改变原集合
+```
+
+- 共同好友
+
+```shell
+sinter u1 u2
+SINTERSTORE u3 u1 u2
+u1&u2 -->u3
+```
 
 
 
