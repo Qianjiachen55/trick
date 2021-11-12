@@ -174,3 +174,5 @@ sudo mount -o loop ./hd.img ./hdisk/
 sudo grub-install --target i386-pc --boot-directory hdisk/boot --force --allow-floppy /dev/loop13
 ```
 
+
+
