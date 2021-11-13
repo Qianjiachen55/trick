@@ -98,10 +98,13 @@ docker exec	contanier.  ...
 
 # Kubernetes
 
+pod:name:命名规范，建议xx-xx-xx不要有大写！
+
 ```shell
 $ kubectl get pod
 $ kubectl get deployment
 $ kubectl get svc
+$ kubectl get pod xxx -o yaml
 
 $ kubectl delete pod pod_id
 $ kubectl delete deployment backend(deployment_id)

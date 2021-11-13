@@ -47,3 +47,30 @@ deployment理解为pod的控制器(api)
 3. Succeeded。这个状态意味着，Pod 里的`所有容器`都正常`运行完毕`，并且已经退出了。这种情况在运行`一次性任务时`最为常见。
 4. Failed。这个状态下，Pod 里至少有一个容器以不正常的状态（非 0 的返回码）退出。这个状态的出现，意味着你得想办法 Debug 这个容器的应用，比如查看 Pod 的 Events 和日志。
 5. Unknown。这是一个异常状态，意味着 Pod 的状态不能持续地被 kubelet 汇报给 kube-apiserver，这很有可能是主从节点（Master 和 Kubelet）间的通信出现了问题。
+
+
+
+### Projected Volume
+
+不是为了存放容器的数据
+
+是为了给容器提供预先定义好的数据
+
+1. Secret
+
+```shell
+secret要经过转码！！！！！！！！！！！！！！！！！！！
+```
+
+
+
+2. ConfigMap
+
+3. Downward API
+
+   一般是pod的信息
+
+   Downward API 能够获取到的信息，一定是 Pod 里的容器进程启动之前就能够确定下来的信息
+
+4. ServiceAccountToken
+
