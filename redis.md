@@ -430,6 +430,13 @@ $ expire key datetime
 #datetime 时间戳，这个key在什么时间点过期
 ```
 
+#### flash
+
+```shell
+flashall #清空所有
+flashdb #清空当前库
+```
+
 
 
 #### MUTI /EXEC
@@ -519,7 +526,7 @@ srandmember users 2 # 不改变原集合
 spop users # 改变原集合
 ```
 
-- 共同好友
+- 共同好友（set）
 
 ```shell
 sinter u1 u2
@@ -529,10 +536,52 @@ u1&u2 -->u3
 
 
 
-分表
+- union权限
 
 ```shell
-
+sadd r1 getadd getById 
+sadd r2 getCount getall insert
+sunionstore user r1 r2
+# 判断user有无操作权限 
 
 ```
+
+- 统计访问量
+
+```shell
+统计网站访问量pv,uv,ip
+pv:网站访问次数，刷新可提高
+uv:网站被不同用户访问次数，通过cookie统计，相同用户切换ip地址，uv不变
+ip:被不同ip访问的总次数，通过ip地址统计访问量，同ip不同用户，ip不变
+
+比如ip：
+sadd ips ip1
+sadd ips ip2
+sadd ips ip3
+....
+
+scard ips
+```
+
+
+
+# 业务
+
+### 限时限次
+
+api接口每天调用n次
+
+- 设计计数器，记录调用次数,用户id为key，使用次数为value
+- 调用前获取次数
+  - 不超过次数，调用计数+1
+  - 调用失败，计数-1
+- 为计数器设置生命周期为指定周期，自动清空周期内的使用次数
+
+```shell
+setex 415 10 1
+# value 最大值 9223372036854775807 可以利用这个异常做计数，incr到这个值就会有异常
+
+```
+
+
 
