@@ -563,9 +563,7 @@ sadd ips ip3
 scard ips
 ```
 
-
-
-# 业务
+## 业务
 
 ### 限时限次
 
@@ -580,6 +578,30 @@ api接口每天调用n次
 ```shell
 setex 415 10 1
 # value 最大值 9223372036854775807 可以利用这个异常做计数，incr到这个值就会有异常
+
+```
+
+
+
+## 通用操作
+
+```shell
+keys *
+keys ???
+del xxx
+sort xxx
+
+redis-cli monitor //实时监控redis
+```
+
+
+
+## 持久化
+
+
+
+```shell
+save
 
 ```
 
