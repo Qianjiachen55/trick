@@ -598,11 +598,97 @@ redis-cli monitor //实时监控redis
 
 ## 持久化
 
-
+rdb
 
 ```shell
-save
+save #同步
+bgsave #background save ，异步（fork）
 
+#自动执行
+save second changes
+# second时间范围内key的变化达到changes数量就bgsave
+
+```
+
+快照思想
+
+io性能降低
+
+fork创建子进程,内存消耗
+
+宕机带来数据丢失的风险
+
+
+
+
+
+AOF
+
+append only file
+
+解决数据持久化的实时性
+
+
+
+存储策略
+
+- 每次
+- 每秒
+- 系统控制
+
+```shell
+BGREWRITEAOF # 手工重写
+```
+
+
+
+### 事物
+
+```shell
+multi #开始执行
+...
+...
+...
+exec #结束
+
+(discard 取消任务)
+```
+
+
+
+watch
+
+```shell
+监控到的key发生改变，不做更改
+对在exec之前发生变化，终止事物
+```
+
+锁
+
+```shell
+setnx lock-name 1
+expire lock-name(防止锁没被释放)
+
+```
+
+
+
+过期数据删除策略
+
+- 定时删除
+  - 快速删除
+  - cpu可能压力很大
+- 惰性删除
+  - 到达时间，等下次访问就删除
+  - 节约cpu
+  - 内存占用大
+- 定期删除
+  - 定时轮询
+
+### bitmap
+
+```shell
+位向量，0或1
 ```
 
 
