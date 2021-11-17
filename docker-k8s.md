@@ -72,5 +72,5 @@ secret要经过转码！！！！！！！！！！！！！！！！！！！
 
    Downward API 能够获取到的信息，一定是 Pod 里的容器进程启动之前就能够确定下来的信息
 
-4. ServiceAccountToken
+4. ServiceAccountToken(secret)
 
