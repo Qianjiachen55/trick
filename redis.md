@@ -689,7 +689,48 @@ expire lock-name(防止锁没被释放)
 
 ```shell
 位向量，0或1
+bitop op reskey k1 k2
+op: and or not xor
+
+Setbit KEY_NAME OFFSET
+
+bitcount key
+
 ```
 
 
+
+### hyperLogLog
+
+```shell
+用于进行基数统计，不是集合，不存数据，只记录数量
+大数据里面大概会有0.81%的误差
+
+pfadd 最大12k
+pfmetge 之后固定12k
+```
+
+
+
+### GEO
+
+计算两个坐标点
+
+
+
+## 主从
+
+```shell
+1. redis-server redis-6380.conf --slaveof 127.0.0.1 6379
+2. SLAVEOF ip port
+3. 改配置
+
+
+断开：SLAVEOF no one
+```
+
+主从复制
+
+1. 全量恢复
+2. 部分恢复
 
