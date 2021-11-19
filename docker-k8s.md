@@ -74,3 +74,9 @@ secret要经过转码！！！！！！！！！！！！！！！！！！！
 
 4. ServiceAccountToken(secret)
 
+
+
+### replicaSet
+
+deployment控制replicaSet,replicaSet控制Pod
+
