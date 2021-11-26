@@ -6,5 +6,6 @@
 
 ```shell
 mongodump -d db -c collection (xxx.bson)
+mongorestore 
 ```
 
