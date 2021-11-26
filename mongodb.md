@@ -2,12 +2,9 @@
 
 
 
-### find
+### 备份以及恢复
 
+```shell
+mongodump -d db -c collection (xxx.bson)
 ```
-db.find({name:"apple"}).pretty()
 
-db.fruit.insertOne({name:"apple"})
-
-db.fruit.insertMany([{name:"apple"},{name:"pear"},{name:"orange"}])
-```
