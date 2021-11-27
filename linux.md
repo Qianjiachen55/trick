@@ -160,3 +160,14 @@ export PATH=/path/to/your/dir:$PATH
 usermod -g root username ，执行完后username即归属于root组了，可以再输入
 ```
 
+
+
+### 管道
+
+```
+grep
+kill 一组进程
+ps -ef| grep mongo| grep -v grep | cut -c 9-16|xargs kill -15
+(-15 正常退出)
+```
+
